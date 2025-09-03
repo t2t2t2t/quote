@@ -1,0 +1,295 @@
+/*
+   ========================================
+   🎨 Цитаты — Стили
+   ========================================
+*/
+
+/* ===== ГЛОБАЛЬНЫЕ СТИЛИ ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: all 0.3s ease;
+}
+
+/* ===== ПЕРЕМЕННЫЕ ТЕМ ===== */
+body.light-theme {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --border-color: #e0e0e0;
+    --card-bg: #f9f9f9;
+    --shadow: rgba(0, 0, 0, 0.05);
+    --btn-bg: #000000;
+    --btn-color: #ffffff;
+    --btn-hover-bg: #ffffff;
+    --btn-hover-color: #000000;
+}
+
+body.dark-theme {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --border-color: #333333;
+    --card-bg: #1a1a1a;
+    --shadow: rgba(255, 255, 255, 0.05);
+    --btn-bg: #ffffff;
+    --btn-color: #000000;
+    --btn-hover-bg: #000000;
+    --btn-hover-color: #ffffff;
+}
+
+/* ===== СВЕТЛАЯ ТЕМА ===== */
+body.light-theme {
+    color: #000000;
+    background-color: #ffffff;
+}
+
+/* ===== ТЁМНАЯ ТЕМА ===== */
+body.dark-theme {
+    color: #ffffff;
+    background-color: #000000;
+}
+
+/* ===== КОНТЕЙНЕР ЦИТАТЫ (одиночная) ===== */
+.quote-container {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 3rem;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 2px 10px var(--shadow);
+}
+
+.quote-text {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.quote-author {
+    font-size: 1.1rem;
+    font-weight: normal;
+    color: var(--text-color);
+    opacity: 0.8;
+    text-align: right;
+    margin-top: 2rem;
+}
+
+/* ===== СПИСОК ЦИТАТ ===== */
+.quote-list {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Элемент списка — карточка цитаты */
+.quote-item {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.quote-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--shadow);
+}
+
+.quote-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Разделитель между текстом и автором */
+.quote-item hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 1.5rem 0;
+    opacity: 0.6;
+}
+
+/* ===== КНОПКИ ===== */
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background-color: var(--btn-bg);
+    color: var(--btn-color);
+    border: 1px solid var(--btn-bg);
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-top: 2rem;
+}
+
+.btn:hover {
+    background-color: var(--btn-hover-bg);
+    color: var(--btn-hover-color);
+}
+
+/* ===== ПОИСК ===== */
+.search-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 0 15px;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+    border: 2px solid var(--border-color);
+    border-radius: 50px;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+}
+
+.search-form:focus-within {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.search-input,
+.search-btn {
+    padding: 14px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 40px;
+    outline: none;
+}
+
+.search-input {
+    flex: 1;
+    min-width: 150px;
+    background-color: #f0f0f0;
+    color: var(--text-color);
+}
+
+.dark-theme .search-input {
+    background-color: #333;
+}
+
+.search-input::placeholder {
+    color: var(--text-color);
+    opacity: 0.6;
+}
+
+.search-btn {
+    margin: 0;
+    background-color: var(--btn-bg);
+    color: var(--btn-color);
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ ===== */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.theme-label {
+    margin-left: 10px;
+    font-size: 1.5rem;
+    color: #666;
+}
+
+.dark-theme .theme-label {
+    color: #ccc;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 24px;
+    position: relative;
+    width: 50px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #66bb6a;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 768px) {
+    .quote-container,
+    .quote-item {
+        padding: 1.5rem;
+        margin: 0 15px;
+    }
+
+    .quote-text {
+        font-size: 1.2rem;
+    }
+
+    .search-form {
+        flex-direction: row;
+        padding: 8px;
+    }
+
+    .search-input {
+        font-size: 15px;
+    }
+
+    .search-btn {
+        font-size: 15px;
+        padding: 12px 18px;
+    }
+}
