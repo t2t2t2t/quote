@@ -1,10 +1,7 @@
 package com.study.quote.controller;
 
-import com.fasterxml.jackson.databind.introspect.TypeResolutionContext;
 import com.study.quote.model.Quote;
 import com.study.quote.service.QuoteService;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
