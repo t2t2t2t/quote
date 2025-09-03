@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Quote</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+    </label>
+    <div class="theme-label">Темная тема</div>
+</div>
+
+<div class="quote-container">
+    <p class="quote-text" th:text="${quote.body}">Цитата появится здесь</p>
+    <p class="quote-author" th:text="'- ' + ${quote.author}">Автор появится здесь</p>
+    <br>
+    <a href="/" class="btn">Новая цитата</a>
+</div>
+
+<div class="search-container">
+    <form th:action="@{/search}" method="get" class="search-form">
+        <input
+                type="text"
+                name="query"
+                placeholder="Введите слова ..."
+                class="search-input"
+        >
+        <button type="submit" class="btn search-btn">Поиск</button>
+    </form>
+</div>
+
+
+<script th:src="@{/js/theme-switcher.js}"></script>
+
+</body>
+</html>

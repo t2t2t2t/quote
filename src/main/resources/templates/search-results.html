@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+    </label>
+    <div class="theme-label">Темная тема</div>
+</div>
+
+<div class="quote-list">
+
+    <div th:if="${quoteList == null}">
+        <p>Цитаты не найдены 😔</p>
+    </div>
+
+    <!-- Если список не пустой - показываем цитаты -->
+    <div th:unless="${quoteList == null}">
+        <h2 th:text="'Найдено цитат: ' + ${quoteList.size()}"></h2>
+
+
+        <div th:each="quote : ${quoteList}" class="quote-item">
+            <p class="quote-text" th:text="${quote.body}">Текст цитаты</p>
+            <p class="quote-author" th:text="'- ' + ${quote.author}">Автор</p>
+            <hr>
+
+        </dev>
+
+    </div>
+
+    <br>
+    <a href="/" class="btn">На главную</a>
+</div>
+<script th:src="@{/js/theme-switcher.js}"></script>
+</body>
+</html>
